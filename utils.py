@@ -5,9 +5,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from win10toast import ToastNotifier
 
-def wait(time : float = 5):
-	sleep(time)
-
 toaster = ToastNotifier()
 def notify(msg : str, duration : int = 3):
 	toaster.show_toast(title='LinkedIn Script', msg=msg, duration=duration)
@@ -21,6 +18,10 @@ def log(msg : str):
 	print(f'\n{msg}\n')
 	with open(log_file_name, 'at') as log_file:
 		log_file.write(f'{msg}\n')
+
+def wait(time : float = 5):
+	log(f'Waiting for {time} Seconds...')
+	sleep(time)
 
 # links
 login_url = "https://www.linkedin.com/login"

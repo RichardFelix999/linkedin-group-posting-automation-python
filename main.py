@@ -21,5 +21,6 @@ if __name__ == "__main__":
     group_anchor_tags = driver.find_elements(By.CSS_SELECTOR, group_link_selector)
     log(f'found {len(group_anchor_tags)} groups')
 
-    group_links = [ a.get_attribute("href") for a in group_anchor_tags ]
+    group_links = [ {'name' : a.text, 'link' : a.get_attribute("href")} for a in group_anchor_tags ]
+    print(group_links)
     log('Program finished')
